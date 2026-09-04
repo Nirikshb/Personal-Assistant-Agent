@@ -13,4 +13,5 @@ This is a NestJS 12 TypeScript API (`ai-assistant`), not a Nuxt/Vue app. Follow 
 - Keep types and call chains small. See `.cursor/rules/keep-it-simple.mdc`.
 - Ollama HTTP lives only in `src/ollama/`. Other features inject `OllamaService`. Do not add Vue composables.
 - Combining Gmail + Ollama happens only in `src/agent/`. Do not call both from a controller.
+- Web search and page fetch live only in `src/web/`. Inject `WebService`. Do not call Tavily/Jina/Playwright from the agent file except through that service.
 - Never put secrets, API keys, or `.env` values in source, rules, commits, or logs.

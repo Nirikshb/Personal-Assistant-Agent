@@ -82,6 +82,22 @@ Still no send. Drafts are not in this list.
 
 ---
 
+## Part F — Web search and page read (you get the keys)
+
+Ollama and Gmail stay as they are. This is only the internet tool.
+
+| # | You do this | You get / Done when |
+|---|---|---|
+| F1 | Create a **[Tavily](https://tavily.com/)** key **or** a **[Brave Search API](https://brave.com/search/api/)** key. Paste into `.env` as `TAVILY_API_KEY` or `BRAVE_API_KEY`. Prefer Tavily if you only want one. Restart the server. | `GET /web/status` shows `tavily: true` or `brave: true`. |
+| F2 | In a **browser**, open `https://r.jina.ai/https://stripe.com/jobs` (or any company careers URL). | You see page text as markdown/plain. That is Jina. Optional: `JINA_API_KEY` in `.env` if you sign up for higher limits. |
+| F3 | `GET http://localhost:3000/web/search?q=stripe+careers` | JSON `results` with `title`, `url`, `snippet`. **503** = missing/wrong search key. |
+| F4 | `GET http://localhost:3000/web/read?url=https://example.com` | JSON `text` plus `source` (`jina` or `playwright` / `browserless`). |
+| F5 | Optional: [Browserless](https://www.browserless.io/) Playwright/CDP websocket into `BROWSERLESS_WS`. Leave empty to use **local Chromium** (already installed via Playwright). | `GET /web/status` `browserless: true` only if that env is set. |
+
+Do not paste API keys into chat.
+
+---
+
 ## What you never hand to the AI
 
 - Google client secret  

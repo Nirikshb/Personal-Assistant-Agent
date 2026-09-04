@@ -12,7 +12,7 @@ How to use both: keep `you_to_do.md` open and work the table. Open this file whe
 
 | File | Job |
 |---|---|
-| `you_to_do.md` | Human output: do this → expect this. Parts A–D. |
+| `you_to_do.md` | Human output: do this → expect this. Parts A–F. |
 | `you_to_do_explained.md` (this) | Why it exists, what the code is waiting for, what “configured vs connected” means. |
 
 They are linked at the top and bottom of each file. Code walkthroughs stay in `docs/src/` and `docs/gmail.md`. Those are for reading the TypeScript, not for clicking Google Console.
@@ -87,6 +87,12 @@ It can take a while (local model). Failure is still 503 from Gmail or Ollama, no
 
 Drafts or send still need **new Google scopes** and **another** Part C login.
 
+## Part F — Why web keys are on you
+
+Tavily/Brave will not give **us** your search quota. Jina in the browser (F2) proves Reader works without Nest. `/web/search` and `/web/read` prove Nest can use them. Playwright is already on this machine; Browserless is optional hosted Chrome.
+
+The **job-hunt loop** (your sentence → search → filter company URLs → answer) is not in Part F. F only plugs the internet **tool** in, like Gmail OAuth plugged mail in.
+
 ---
 
 ## If a check fails (no secrets in the report)
@@ -101,6 +107,8 @@ Drafts or send still need **new Google scopes** and **another** Part C login.
 | `configured: true`, `connected: false` after login | C2–C3, or revoke and C1 again |
 | `/gmail/messages` 503 | C not done, or token file missing |
 | `/agent/inbox` 503 | A (Ollama) or C (Gmail) not done |
+| `/web/search` 503 | F1 missing Tavily/Brave key |
+| `/web/read` empty or 503 | F2/F4 network, or Playwright/Chrome missing |
 
 ---
 

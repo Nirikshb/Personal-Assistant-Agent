@@ -11,6 +11,10 @@ export type AppEnv = {
   NEST_OBSERVE_APP_KEY: string;
   NEST_OBSERVE_APP_SECRET: string;
   NEST_OBSERVE_SERVICE_ID: string;
+  TAVILY_API_KEY: string;
+  BRAVE_API_KEY: string;
+  JINA_API_KEY: string;
+  BROWSERLESS_WS: string;
 };
 
 function readString(
@@ -54,6 +58,10 @@ export function validateEnv(config: Record<string, unknown>): AppEnv {
       'NEST_OBSERVE_SERVICE_ID',
       'ai-assistant',
     ),
+    TAVILY_API_KEY: readString(config, 'TAVILY_API_KEY', ''),
+    BRAVE_API_KEY: readString(config, 'BRAVE_API_KEY', ''),
+    JINA_API_KEY: readString(config, 'JINA_API_KEY', ''),
+    BROWSERLESS_WS: readString(config, 'BROWSERLESS_WS', ''),
   };
 }
 
