@@ -23,6 +23,13 @@ describe('AppController (e2e)', () => {
       .expect('Hello World!');
   });
 
+  it('/ollama/chat (POST) requires a prompt', () => {
+    return request(app.getHttpServer())
+      .post('/ollama/chat')
+      .send({})
+      .expect(400);
+  });
+
   afterEach(async () => {
     await app.close();
   });

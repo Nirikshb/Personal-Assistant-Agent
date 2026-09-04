@@ -4,6 +4,7 @@ import { createObserveModule } from '@nestjs/observe';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { isObserveEnabled, validateEnv } from './config/env.js';
+import { OllamaModule } from './ollama/ollama.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -15,6 +16,7 @@ const env = validateEnv(process.env);
       isGlobal: true,
       validate: validateEnv,
     }),
+    OllamaModule,
     ...(isObserveEnabled(env)
       ? [
           ObserveModule.forRoot({

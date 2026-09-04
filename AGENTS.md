@@ -1,6 +1,6 @@
 # Agent notes
 
-NestJS 12 API for a local personal assistant. Ollama will be wired later.
+NestJS 12 API for a local personal assistant.
 
 ## Setup
 
@@ -10,7 +10,15 @@ copy .env.example .env
 npm run start:dev
 ```
 
-`GET /` returns `Hello World!`. Server port comes from `PORT` (default 3000).
+- `GET /` returns `Hello World!`
+- `GET /ollama/health` lists local Ollama models
+- `POST /ollama/chat` with `{ "prompt": "..." }` returns a model reply
+
+Server port comes from `PORT` (default 3000).
+
+## Layout
+
+Ollama HTTP lives only in `src/ollama/`. Why: [docs/ollama.md](docs/ollama.md).
 
 ## Env
 
