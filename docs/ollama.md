@@ -21,11 +21,12 @@ This is **not** the agent yet. No tools, no email, no memory. The goal is: if Ol
 
 If Ollama is down, those routes return **503**. A missing `prompt` returns **400**.
 
-## Files
+## Per-file TypeScript walkthroughs
 
-| File | Role |
+| File | Doc |
 |---|---|
-| `ollama.service.ts` | HTTP to Ollama |
-| `ollama.controller.ts` | Thin smoke-test routes |
-| `ollama.module.ts` | Registers and **exports** the service for later modules |
-| `ollama.service.spec.ts` | Mocks `fetch` so tests do not need Ollama running |
+| `ollama.module.ts` | [docs/src/ollama/ollama.module.md](src/ollama/ollama.module.md) |
+| `ollama.service.ts` | [docs/src/ollama/ollama.service.md](src/ollama/ollama.service.md) |
+| `ollama.controller.ts` | [docs/src/ollama/ollama.controller.md](src/ollama/ollama.controller.md) |
+
+`ollama.service.spec.ts` is tests only; no walkthrough unless we add tests again on purpose.

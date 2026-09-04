@@ -1,0 +1,27 @@
+---
+description: Per-file docs when an agent creates or materially changes a source file
+alwaysApply: true
+---
+
+# Per-file docs
+
+When you **create** a source file under `src/`, or **materially change** one (new public method, new dependency, new route), add or update a matching markdown file:
+
+`docs/src/<same-path-as-source-without-extension>.md`
+
+Example: `src/ollama/ollama.service.ts` → `docs/src/ollama/ollama.service.md`
+
+Do this in the same turn as the code. Do not dump the walkthrough only in chat.
+
+Use this section order, nothing extra:
+
+1. **How to read this file** — numbered, top-to-bottom eye path
+2. **What it does**
+3. **Why it exists**
+4. **Lifecycle** — when Nest creates it, when it runs, when it is done
+5. **Dependencies and connections** — imports, injects, HTTP, env, who calls it
+6. **TypeScript walkthrough** — divided by block (imports, class, constructor, each method). Explain types in plain language. Assume the reader knows frontend more than Nest.
+
+Keep docs aligned with the file. If you delete a source file, delete its doc.
+
+Link new pages from `docs/README.md`.

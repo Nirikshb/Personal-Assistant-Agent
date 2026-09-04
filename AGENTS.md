@@ -18,7 +18,7 @@ Server port comes from `PORT` (default 3000).
 
 ## Layout
 
-Ollama HTTP lives only in `src/ollama/`. Why: [docs/ollama.md](docs/ollama.md).
+Ollama HTTP lives only in `src/ollama/`. Folder why: [docs/ollama.md](docs/ollama.md). Per-file TypeScript walkthroughs: [docs/README.md](docs/README.md).
 
 ## Env
 
