@@ -67,7 +67,18 @@ Tick only after you personally saw it.
 | Real mail | C5 shows mail you recognise |
 | Secrets | `.env` and `.gmail-tokens.json` are **not** committed |
 
-When this table is all pass, your side of “model works + inbox readable” is done. Drafts/send are **not** in this list (new Google permission later).
+When this table is all pass, pipes work. Then do Part E.
+
+---
+
+## Part E — Inbox brief (after D)
+
+| # | You do this | You get / Done when |
+|---|---|---|
+| E1 | Restart `npm run start:dev` if it was running before this feature existed. | Server is up. |
+| E2 | `GET http://localhost:3000/agent/inbox?max=5` | JSON with `messages` (your mail) and `brief` (model text classifying / summarising). Slow is normal. **503** = Ollama or Gmail not ready (A or C). |
+
+Still no send. Drafts are not in this list.
 
 ---
 

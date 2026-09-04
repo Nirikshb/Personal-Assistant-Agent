@@ -5,7 +5,7 @@
 1. Imports — which pieces exist.
 2. `createObserveModule` — ignore until you turn Observe on.
 3. `validateEnv(process.env)` — needed *before* the `@Module` decorator so Observe can be skipped.
-4. `imports` array — Config, Ollama, Gmail, maybe Observe.
+4. `imports` array — Config, Ollama, Gmail, Agent, maybe Observe.
 5. `controllers` / `providers` — still the hello-world starter.
 
 ## What it does
@@ -14,7 +14,7 @@ Root Nest module. It says what is in the application.
 
 ## Why it exists
 
-Nest requires one root module. Feature modules (Ollama, Gmail) get **imported** here instead of dumping everything into `AppService`.
+Nest requires one root module. The assistant should orchestrate. Feature modules (Ollama, Gmail, Agent) get **imported** here.
 
 ## Lifecycle
 
@@ -24,8 +24,9 @@ Evaluated when `main.ts` imports it. Nest then instantiates imported modules, th
 
 ```
 main.ts → AppModule → ConfigModule (global env)
-                    → OllamaModule → OllamaService, OllamaController
-                    → GmailModule → GmailService, GmailController
+                    → OllamaModule
+                    → GmailModule
+                    → AgentModule → GmailService + OllamaService
                     → ObserveModule (only if keys are set)
                     → AppController → AppService
 ```

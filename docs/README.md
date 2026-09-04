@@ -35,5 +35,8 @@ The AI cannot finish Google login or real secrets. Use this pair only:
 | `src/gmail/gmail.module.ts` | [gmail.module](src/gmail/gmail.module.md) |
 | `src/gmail/gmail.service.ts` | [gmail.service](src/gmail/gmail.service.md) |
 | `src/gmail/gmail.controller.ts` | [gmail.controller](src/gmail/gmail.controller.md) |
+| `src/agent/agent.module.ts` | [agent.module](src/agent/agent.module.md) |
+| `src/agent/agent.service.ts` | [agent.service](src/agent/agent.service.md) |
+| `src/agent/agent.controller.ts` | [agent.controller](src/agent/agent.controller.md) |
 
-Folder overviews: [Ollama](ollama.md) · [Gmail](gmail.md)
+Folder overviews: [Ollama](ollama.md) · [Gmail](gmail.md) · [Agent](agent.md)

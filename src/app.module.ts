@@ -6,6 +6,7 @@ import { AppService } from './app.service.js';
 import { isObserveEnabled, validateEnv } from './config/env.js';
 import { OllamaModule } from './ollama/ollama.module.js';
 import { GmailModule } from './gmail/gmail.module.js';
+import { AgentModule } from './agent/agent.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -19,6 +20,7 @@ const env = validateEnv(process.env);
     }),
     OllamaModule,
     GmailModule,
+    AgentModule,
     ...(isObserveEnabled(env)
       ? [
           ObserveModule.forRoot({

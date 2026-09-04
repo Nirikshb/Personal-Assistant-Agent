@@ -75,11 +75,17 @@ If Google skips the refresh token, you revoke the app in your Google account and
 
 ---
 
-## Part D — What “ready” means for the next build
+## Part D — What “ready” means
 
-When A6–A7, B8, C4–C5 all pass, we can add product behaviour (classify with Ollama, drafts, etc.) **on top of** working pipes.
+When A6–A7, B8, C4–C5 all pass, Gmail list and Ollama chat work **separately**.
 
-Drafts or send need **new Google scopes** and **another** Part C login. Do not expect today’s connect screen to include send.
+## Part E — Inbox brief
+
+`GET /agent/inbox` is `src/agent`: one Gmail list + one Ollama prompt. You do not configure a new Google product. You only confirm D, then hit the route (E2).
+
+It can take a while (local model). Failure is still 503 from Gmail or Ollama, not a new kind of secret.
+
+Drafts or send still need **new Google scopes** and **another** Part C login.
 
 ---
 
@@ -94,6 +100,7 @@ Drafts or send need **new Google scopes** and **another** Part C login. Do not e
 | Redirect mismatch / `redirect_uri_mismatch` | B6 vs `PORT` vs `.env` |
 | `configured: true`, `connected: false` after login | C2–C3, or revoke and C1 again |
 | `/gmail/messages` 503 | C not done, or token file missing |
+| `/agent/inbox` 503 | A (Ollama) or C (Gmail) not done |
 
 ---
 
