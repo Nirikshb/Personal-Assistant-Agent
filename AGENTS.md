@@ -12,13 +12,15 @@ npm run start:dev
 
 - `GET /` returns `Hello World!`
 - `GET /ollama/health` lists local Ollama models
-- `POST /ollama/chat` with `{ "prompt": "..." }` returns a model reply
+- `GET /gmail/status` — OAuth env + whether you have connected
+- `GET /gmail/connect` — browser login (see [docs/gmail.md](docs/gmail.md))
+- `GET /gmail/messages` — recent mail after connect
 
 Server port comes from `PORT` (default 3000).
 
 ## Layout
 
-Ollama HTTP lives only in `src/ollama/`. Folder why: [docs/ollama.md](docs/ollama.md). Per-file TypeScript walkthroughs: [docs/README.md](docs/README.md).
+Ollama HTTP lives only in `src/ollama/`. Gmail OAuth/API lives only in `src/gmail/`. Folder why: [docs/ollama.md](docs/ollama.md), [docs/gmail.md](docs/gmail.md). Per-file TypeScript walkthroughs: [docs/README.md](docs/README.md).
 
 ## Env
 

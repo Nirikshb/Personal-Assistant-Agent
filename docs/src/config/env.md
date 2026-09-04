@@ -26,12 +26,12 @@ So controllers never call `process.env` directly, and a bad `PORT` fails at star
 
 - **Reads:** `.env` via dotenv, then `process.env`.
 - **Used by:** `AppModule`, `main.ts`, `ConfigModule.forRoot({ validate: validateEnv })`.
-- **Consumed later as:** `ConfigService.get('OLLAMA_BASE_URL')` etc. Keys must match this file.
-- **Does not talk to Ollama.** It only stores the URL and model name.
+- **Consumed later as:** `ConfigService.get('OLLAMA_BASE_URL')`, `GOOGLE_CLIENT_ID`, etc. Keys must match this file.
+- **Does not talk to Ollama or Gmail.** It only stores URLs, model name, and Google client settings.
 
 ## TypeScript walkthrough
 
-**`export type AppEnv`.** A type, not a class. `{ PORT: number; OLLAMA_MODEL: string; ... }` is the contract.
+**`export type AppEnv`.** A type, not a class. `{ PORT: number; OLLAMA_MODEL: string; GOOGLE_CLIENT_ID: string; ... }` is the contract.
 
 **`Record<string, unknown>`.** “Object with string keys, we do not trust values yet.” That is what `process.env` looks like to us.
 

@@ -5,6 +5,9 @@ export type AppEnv = {
   PORT: number;
   OLLAMA_BASE_URL: string;
   OLLAMA_MODEL: string;
+  GOOGLE_CLIENT_ID: string;
+  GOOGLE_CLIENT_SECRET: string;
+  GOOGLE_REDIRECT_URI: string;
   NEST_OBSERVE_APP_KEY: string;
   NEST_OBSERVE_APP_SECRET: string;
   NEST_OBSERVE_SERVICE_ID: string;
@@ -37,6 +40,13 @@ export function validateEnv(config: Record<string, unknown>): AppEnv {
       'http://127.0.0.1:11434',
     ),
     OLLAMA_MODEL: readString(config, 'OLLAMA_MODEL', ''),
+    GOOGLE_CLIENT_ID: readString(config, 'GOOGLE_CLIENT_ID', ''),
+    GOOGLE_CLIENT_SECRET: readString(config, 'GOOGLE_CLIENT_SECRET', ''),
+    GOOGLE_REDIRECT_URI: readString(
+      config,
+      'GOOGLE_REDIRECT_URI',
+      'http://localhost:3000/gmail/callback',
+    ),
     NEST_OBSERVE_APP_KEY: readString(config, 'NEST_OBSERVE_APP_KEY', ''),
     NEST_OBSERVE_APP_SECRET: readString(config, 'NEST_OBSERVE_APP_SECRET', ''),
     NEST_OBSERVE_SERVICE_ID: readString(

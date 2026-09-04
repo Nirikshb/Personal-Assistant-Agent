@@ -43,6 +43,9 @@ ehthumbs.db
 .env.*
 !.env.example
 
+# Gmail OAuth tokens (local only)
+.gmail-tokens.json
+
 # temp directory
 .temp
 .tmp

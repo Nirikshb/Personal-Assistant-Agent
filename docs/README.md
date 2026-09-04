@@ -13,6 +13,15 @@ Template (do not skip sections):
 5. Dependencies and connections
 6. TypeScript walkthrough
 
+## Human setup (two files)
+
+The AI cannot finish Google login or real secrets. Use this pair only:
+
+| File | Read it as |
+|---|---|
+| [you_to_do.md](you_to_do.md) | **For you to do** — do this, expect that |
+| [you_to_do_explained.md](you_to_do_explained.md) | Why those steps exist and how they connect to the app |
+
 ## Index
 
 | Source | Doc |
@@ -23,5 +32,8 @@ Template (do not skip sections):
 | `src/ollama/ollama.module.ts` | [ollama.module](src/ollama/ollama.module.md) |
 | `src/ollama/ollama.service.ts` | [ollama.service](src/ollama/ollama.service.md) |
 | `src/ollama/ollama.controller.ts` | [ollama.controller](src/ollama/ollama.controller.md) |
+| `src/gmail/gmail.module.ts` | [gmail.module](src/gmail/gmail.module.md) |
+| `src/gmail/gmail.service.ts` | [gmail.service](src/gmail/gmail.service.md) |
+| `src/gmail/gmail.controller.ts` | [gmail.controller](src/gmail/gmail.controller.md) |
 
-Folder overview: [Ollama](ollama.md)
+Folder overviews: [Ollama](ollama.md) · [Gmail](gmail.md)
