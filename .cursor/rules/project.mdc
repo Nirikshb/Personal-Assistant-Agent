@@ -1,0 +1,13 @@
+---
+description: Core conventions for this NestJS personal assistant agent
+alwaysApply: true
+---
+
+# Project
+
+This is a NestJS 12 TypeScript API (`ai-assistant`), not a Nuxt/Vue app. Follow existing Nest modules, controllers, and services.
+
+- Use ESM: import local files with a `.js` extension (`./app.service.js`).
+- Prefer the smallest change that matches nearby files. Do not add wrappers, extra composables, or new architecture unless asked.
+- Do not implement an Ollama client or agent loop unless the user asks. Config keys for Ollama already exist.
+- Never put secrets, API keys, or `.env` values in source, rules, commits, or logs.

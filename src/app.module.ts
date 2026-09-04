@@ -1,19 +1,29 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { createObserveModule } from '@nestjs/observe';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
+import { isObserveEnabled, validateEnv } from './config/env.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
+const env = validateEnv(process.env);
+
 @Module({
   imports: [
-    // Distributed tracing, auto-correlated logs, request/job metrics, error
-    // telemetry, alarms, and more — out of the box. Sign up at https://observe.nestjs.com
-    ObserveModule.forRoot({
-      appKey: 'YOUR_APP_KEY',
-      appSecret: 'YOUR_APP_SECRET',
-      serviceId: 'ai-assistant',
+    ConfigModule.forRoot({
+      isGlobal: true,
+      validate: validateEnv,
     }),
+    ...(isObserveEnabled(env)
+      ? [
+          ObserveModule.forRoot({
+            appKey: env.NEST_OBSERVE_APP_KEY,
+            appSecret: env.NEST_OBSERVE_APP_SECRET,
+            serviceId: env.NEST_OBSERVE_SERVICE_ID,
+          }),
+        ]
+      : []),
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,0 +1,20 @@
+---
+description: NestJS TypeScript module and import patterns
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+# NestJS
+
+- `script` files are TypeScript. Use `@Module`, `@Controller`, `@Injectable` as in `src/app.module.ts`.
+- Inject `ConfigService` for env values. Do not read `process.env` in controllers or services except in `src/config/env.ts` and bootstrap.
+- Keep HTTP handlers thin: controller → service.
+- Add features as Nest modules under `src/`, not as a second framework.
+
+```typescript
+// ❌ BAD
+import { AppService } from './app.service';
+
+// ✅ GOOD
+import { AppService } from './app.service.js';
+```
