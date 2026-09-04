@@ -9,6 +9,8 @@ This is a NestJS 12 TypeScript API (`ai-assistant`), not a Nuxt/Vue app. Follow 
 
 - Use ESM: import local files with a `.js` extension (`./app.service.js`).
 - Prefer the smallest change that matches nearby files. Do not add wrappers, extra composables, or new architecture unless asked.
+- Do not write tests unless the user asks. See `.cursor/rules/no-tests-unless-asked.mdc`.
+- Keep types and call chains small. See `.cursor/rules/keep-it-simple.mdc`.
 - Ollama HTTP lives only in `src/ollama/`. Other features inject `OllamaService`. Do not add Vue composables.
 - Do not add an agent loop or Gmail unless the user asks.
 - Never put secrets, API keys, or `.env` values in source, rules, commits, or logs.

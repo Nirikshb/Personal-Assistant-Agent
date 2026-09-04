@@ -1,0 +1,25 @@
+---
+description: Prefer the smallest, already-established Nest pattern
+alwaysApply: true
+---
+
+# Less overengineering
+
+Match what is already in `src/`. Do not invent a second style.
+
+Do not add:
+
+- Extra `type` / `interface` / `enum` / DTO classes when a small inline shape will do
+- Wrapper services, helpers, or “utils” that only forward one call
+- Extra modules, folders, or layers for a single new function
+- Chains of calls that could be one method on the existing service
+- class-validator, repositories, events, or queues until the user asks
+
+Do:
+
+- Put new HTTP in a thin controller; put I/O in the existing feature service (Ollama stays in `OllamaService`)
+- Reuse `ConfigService` and exported module services
+- One `fetch` path per integration, not parallel clients
+- Inline `{ prompt?: string }` style types as in `OllamaController`
+
+If two designs work, pick the one with fewer files and fewer types.

@@ -1,0 +1,14 @@
+---
+description: Do not write tests unless the user asks
+alwaysApply: true
+---
+
+# Tests
+
+Do not add, expand, or generate test files (`*.spec.ts`, `*.e2e-spec.ts`, fixtures, coverage) unless the user clearly asks for tests in that message.
+
+Do not write tests “while we are here,” for CI, for TDD, or to “match existing specs.”
+
+Existing tests: leave them alone unless the user asks to change tests. If a code change would break an existing test, fix the production code first; only edit the test if the user asked or the test is now wrong because of a requested behavior change.
+
+Docs (`docs/src/...`) are not tests. Keep writing those per the docs rule. Do not add a spec to “document” a file.
